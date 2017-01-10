@@ -22,6 +22,7 @@ extern keymap_config_t keymap_config;
 #define _PLOVER 5
 #define _DIGITS 6
 #define _ARROWS 7
+#define _FUNCTIONS 8
 #define _ADJUST 16
 
 enum planck_keycodes {
@@ -31,6 +32,7 @@ enum planck_keycodes {
   PLOVER,
   DIGITS,
   ARROWS,
+  FUNCTIONS,
   LOWER,
   RAISE,
   BACKLIT,
@@ -47,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |A/FN2 |   S  |D/FN1 |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |A/FN2 |   S  |D/FN1 |F/FN3 |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -56,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_ESC,  F(2),    KC_S,    F(1),    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+  {KC_ESC,  F(2),    KC_S,    F(1),    F(3),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MT(MOD_RSFT, KC_ENT) },
   {KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
@@ -130,6 +132,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, _______, _______, _______, _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, _______},
   {_______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______},
   {_______, _______, _______, _______, _______, _______, _______,S(KC_HOME),_______,S(KC_END),_______,_______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+},
+
+/* Functions (chord and pick)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |  F7  |  F8  |  F9  | F12  |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  F4  |  F5  |  F6  | F11  | PSCR |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  F1  |  F2  |  F3  | F10  |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_FUNCTIONS] = {
+  {_______, _______, _______, _______, _______, _______, _______,   KC_F7,   KC_F8,   KC_F9,  KC_F12, _______},
+  {_______, _______, _______, _______, _______, _______, _______,   KC_F4,   KC_F5,   KC_F6,  KC_F11,KC_PSCREEN},
+  {_______, _______, _______, _______, _______, _______, _______,   KC_F1,   KC_F2,   KC_F3,  KC_F10, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -212,6 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM fn_actions[] = {
  [1] = ACTION_LAYER_TAP_KEY(6, KC_D), // FN1 = momentary Digits layer on D key, to use with Numpad keys
  [2] = ACTION_LAYER_TAP_KEY(7, KC_A), // FN2 = momentary Arrows layer on A key, to use with Arrow keys
+ [3] = ACTION_LAYER_TAP_KEY(8, KC_F), // FN3 = momentary Functions layer on F key, to use with Functions keys
 };
 
 #ifdef AUDIO_ENABLE
