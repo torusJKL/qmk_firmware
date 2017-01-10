@@ -6,3 +6,4 @@ Features:
 - Brightness moved to lower and raise layers
 - Rearanged Ctrl and GUI keys
 - Added Hyper key
+- Digits layer based on pocketkk's Chord left Pick right design
