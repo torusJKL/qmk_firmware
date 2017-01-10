@@ -21,6 +21,7 @@ extern keymap_config_t keymap_config;
 #define _RAISE 4
 #define _PLOVER 5
 #define _DIGITS 6
+#define _ARROWS 7
 #define _ADJUST 16
 
 enum planck_keycodes {
@@ -29,6 +30,7 @@ enum planck_keycodes {
   DVORAK,
   PLOVER,
   DIGITS,
+  ARROWS,
   LOWER,
   RAISE,
   BACKLIT,
@@ -45,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |D/FN1 |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |A/FN2 |   S  |D/FN1 |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -54,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_ESC,  KC_A,    KC_S,    F(1),    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+  {KC_ESC,  F(2),    KC_S,    F(1),    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MT(MOD_RSFT, KC_ENT) },
   {KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
@@ -111,6 +113,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, _______, _______, _______, KC_LEFT,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, KC_PGDN},
   {_______, _______, _______, _______, _______, _______, _______,   KC_P1,   KC_P2,   KC_P3, KC_PMNS, KC_PENT},
   {_______, _______, _______, _______, _______, _______, _______, _______,   KC_P0, KC_PDOT, KC_SLSH, KC_PENT}
+},
+
+/* Arrows (chord and pick)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      | HOME |  UP  |  END | PgUp |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      | LEFT | DOWN |RIGHT | PgDn |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |SHOME |      | SEND |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_ARROWS] = {
+  {_______, _______, _______, _______, _______, _______, _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, _______},
+  {_______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______},
+  {_______, _______, _______, _______, _______, _______, _______,S(KC_HOME),_______,S(KC_END),_______,_______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 /* Lower
@@ -191,6 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM fn_actions[] = {
  [1] = ACTION_LAYER_TAP_KEY(6, KC_D), // FN1 = momentary Digits layer on D key, to use with Numpad keys
+ [2] = ACTION_LAYER_TAP_KEY(7, KC_A), // FN2 = momentary Arrows layer on A key, to use with Arrow keys
 };
 
 #ifdef AUDIO_ENABLE

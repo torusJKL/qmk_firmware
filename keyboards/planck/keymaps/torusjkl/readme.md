@@ -7,3 +7,4 @@ Features:
 - Rearanged Ctrl and GUI keys
 - Added Hyper key
 - Digits layer based on pocketkk's Chord left Pick right design
+- Arrows layer based on pocketkk's Chord left Pick right design
