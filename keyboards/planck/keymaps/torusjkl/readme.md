@@ -7,4 +7,5 @@ Features:
 - Brightness moved to lower and raise layers
 - Rearanged Ctrl and GUI keys
 - Added Hyper key
-- Digits, Arrows and Functions layer based on pocketkk's Chord left Pick right design
+- Digits, Arrows, Functions and Symbols layer based on pocketkk's Chord left Pick right design
+- the lower and raise layers are removed in favor of the chord and pick layers
