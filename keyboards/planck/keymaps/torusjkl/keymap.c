@@ -15,6 +15,7 @@ extern keymap_config_t keymap_config;
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
 #define _QWERTY 0
+#define _NUMPAD 3
 #define _DIGITS 4
 #define _ARROWS 5
 #define _FUNCTIONS 6
@@ -23,6 +24,7 @@ extern keymap_config_t keymap_config;
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
+  NUMEPAD,
   DIGITS,
   ARROWS,
   FUNCTIONS,
@@ -55,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
-/* Digits (chord and pick)
+/* Numpad (chord and pick)
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      | Numl |   7  |   8  |   9  |   *  | PgUp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -66,11 +68,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |   0  |   .  |   /  |Enter |
  * `-----------------------------------------------------------------------------------'
  */
-[_DIGITS] = {
+[_NUMPAD] = {
   {_______, _______, _______, _______, _______, _______, KC_NLCK,   KC_P7,   KC_P8,   KC_P9, KC_PAST, KC_PGUP},
   {_______, _______, _______, _______, _______, _______, _______,   KC_P4,   KC_P5,   KC_P6, KC_PPLS, KC_PGDN},
   {_______, _______, _______, _______, _______, _______, _______,   KC_P1,   KC_P2,   KC_P3, KC_PMNS, KC_PENT},
   {_______, _______, _______, _______, _______, _______, _______, _______,   KC_P0, KC_PDOT, KC_SLSH, KC_PENT}
+},
+
+/* Digits (chord and pick)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |   7  |   8  |   9  |   *  | PgUp |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |   4  |   5  |   6  |   -  | PgDn |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |   1  |   2  |   3  |   +  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |   0  |   .  |   /  |Enter |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_DIGITS] = {
+  {_______, _______, _______, _______, _______, _______, _______,    KC_7,    KC_8,    KC_9, KC_PAST, KC_PGUP},
+  {_______, _______, _______, _______, _______, _______, _______,    KC_4,    KC_5,    KC_6, KC_PPLS, KC_PGDN},
+  {_______, _______, _______, _______, _______, _______, _______,    KC_1,    KC_2,    KC_3, KC_MINS, KC_PENT},
+  {_______, _______, _______, _______, _______, _______, _______, _______,    KC_0,  KC_DOT, KC_SLSH, KC_PENT}
 },
 
 /* Arrows (chord and pick)
