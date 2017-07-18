@@ -132,7 +132,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 },
 
 /* Symbols (chord and pick)
+<<<<<<< HEAD
 >>>>>>> Symbols layer based on pocketkk's Chord left Pick right design. No need for lower and raise layers anymore.
+=======
+>>>>>>> b68204d83b67cee7e91a769ac93d294944da5c34
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |   \  |  &   |  *   |  (   |  )   |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
