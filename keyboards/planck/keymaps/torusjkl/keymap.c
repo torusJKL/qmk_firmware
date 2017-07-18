@@ -21,6 +21,7 @@ extern keymap_config_t keymap_config;
 #define _FUNCTIONS 6
 #define _SYMBOLS 7
 #define _SETTINGS 8
+#define _BRACKETS 9
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
@@ -30,6 +31,7 @@ enum planck_keycodes {
   FUNCTIONS,
   SYMBOLS,
   SETTINGS,
+  BRACKETS,
   BACKLIT
 };
 
@@ -41,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |E/FN5 |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
+ * | Tab  |   Q  |   W  |E/FN5 |R/FN6 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Ctrl/Esc|A/FN2|S/FN4|D/FN1 |F/FN3 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -163,7 +165,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______},
   {_______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
-}
+},
+
+/* Brackets (chord and pick)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |  <   |  [   |  ]   |  >   |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  {   |  (   |  )   |  }   |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  |   |  \   |  /   |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_BRACKETS] = {
+  {_______, _______, _______, _______, _______, _______, _______, KC_LABK, KC_LBRC, KC_RBRC, KC_RABK, _______},
+  {_______, _______, _______, _______, _______, _______, _______, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______},
+  {_______, _______, _______, _______, _______, _______, _______, KC_PIPE, KC_BSLS, KC_SLSH, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+},
 
 };
 
@@ -173,6 +193,7 @@ const uint16_t PROGMEM fn_actions[] = {
  [3] = ACTION_LAYER_TAP_KEY(6, KC_F), // FN3 = momentary Functions layer on F key, to use with Functions keys
  [4] = ACTION_LAYER_TAP_KEY(7, KC_S), // FN4 = momentary Symbol layer on S key, to use with Symbols keys
  [5] = ACTION_LAYER_TAP_KEY(8, KC_E), // FN5 = momentary Settings layer on E key, to use with Settings keys
+ [6] = ACTION_LAYER_TAP_KEY(9, KC_R), // FN6 = momentary Brackets layer on R key, to use with brackets and parenthesis
 };
 
 #ifdef AUDIO_ENABLE
