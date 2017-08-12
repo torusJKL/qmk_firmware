@@ -14,6 +14,7 @@ extern keymap_config_t keymap_config;
 #define _FUNCTIONS 6
 #define _SYMBOLS 7
 #define _SETTINGS 8
+#define _BRACKETS 9
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -21,7 +22,8 @@ enum custom_keycodes {
   ARROWS,
   FUNCTIONS,
   SYMBOLS,
-  SETTINGS
+  SETTINGS,
+  BRACKETS
 };
 
 // Fillers to make layering more clear
@@ -32,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |E/LT8 |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Tab  |   Q  |   W  |E/LT8 |R/LT9 |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |A/LT5 |S/LT7 |D/LT4 |F/LT6 |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -42,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = KEYMAP( \
-  KC_TAB,  KC_Q,    KC_W, LT(8,KC_E),    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+  KC_TAB,  KC_Q,    KC_W, LT(8,KC_E), LT(9,KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
   KC_ESC,LT(5,KC_A), LT(7,KC_S),LT(4,KC_D),LT(6,KC_F),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
   _______,  KC_LCTL, KC_LALT, KC_LGUI, _______,   KC_SPC,  KC_SPC,  _______,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
@@ -136,6 +138,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, QWERTY,  _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______,   BL_ON, _______, _______, _______, \
     RESET, _______, _______, _______, _______, _______, _______, _______, _______, AG_NORM, AG_SWAP,   RESET \
+),
+
+/* Brackets (chord and pick)
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |  <   |  [   |  ]   |  >   |      |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  {   |  (   |  )   |  }   |      |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |  \   |  |   |      |  /   |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |             |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_BRACKETS] = KEYMAP( \
+  _______, _______, _______, _______, _______, _______, _______, KC_LABK, KC_LBRC, KC_RBRC, KC_RABK, _______, \
+  _______, _______, _______, _______, _______, _______, _______, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, _______, \
+  _______, _______, _______, _______, _______, _______, _______, KC_BSLS, KC_PIPE, _______, KC_SLSH, _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 )
 
 };
