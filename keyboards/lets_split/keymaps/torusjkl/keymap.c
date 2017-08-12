@@ -36,20 +36,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |W/LT10|E/LT8 |R/LT9 |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Tab  |   Q  |W/LT10|E/LT8 |R/LT9 |   T  |   Y  |   U  |   I  |   O  |   P  |  "   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |A/LT5 |S/LT7 |D/LT4 |F/LT6 |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |Ctrl/Esc|A/LT5|S/LT7|D/LT4 |F/LT6 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |Shift/(|  Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  Shift/)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | Ctrl | Alt  | GUI  |      |Space |Space |      | Left | Down |  Up  |Right |
+ * | Ctrl | GUI  | Alt  | Hyper| Del  |Space |Space | Bksp | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = KEYMAP( \
-  KC_TAB,  KC_Q, LT(10,KC_W), LT(8,KC_E), LT(9,KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-  KC_ESC,LT(5,KC_A), LT(7,KC_S),LT(4,KC_D),LT(6,KC_F),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
-  _______,  KC_LCTL, KC_LALT, KC_LGUI, _______,   KC_SPC,  KC_SPC,  _______,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+  KC_TAB,  KC_Q, LT(10,KC_W), LT(8,KC_E), LT(9,KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT, \
+  LCTL_T(KC_ESC),LT(5,KC_A), LT(7,KC_S),LT(4,KC_D),LT(6,KC_F),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,RCTL_T(KC_ENT), \
+  KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC, \
+  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
 ),
 
 /* Digits (chord and pick)
