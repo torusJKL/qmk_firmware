@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q, LT(10,KC_W), LT(8,KC_E), LT(9,KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT, \
   LCTL_T(KC_ESC),LT(5,KC_A), LT(7,KC_S),LT(4,KC_D),LT(6,KC_F),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,RCTL_T(KC_ENT), \
   KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC, \
-  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN,  LT(8,KC_UP),   KC_RGHT \
+  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN,  KC_UP,   KC_RGHT \
 ),
 
 /* Digits (chord and pick)
@@ -132,14 +132,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |BL tog|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Reset |      |      |      |      |             |      |      |      |      |Reset |
+ * |Reset |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_SETTINGS] = KEYMAP( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, QWERTY,  _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______,   BL_ON, _______, _______, _______, \
-    RESET, _______, _______, _______, _______, _______, _______, _______, _______, AG_NORM, AG_SWAP,   RESET \
+    RESET, _______, _______, _______, _______, _______, _______, _______, _______, AG_NORM, AG_SWAP, _______ \
 ),
 
 /* Brackets (chord and pick)
