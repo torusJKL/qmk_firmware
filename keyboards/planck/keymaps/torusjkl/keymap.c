@@ -33,25 +33,22 @@ enum planck_keycodes {
   BACKLIT
 };
 
-// Fillers to make layering more clear
-#define XXXXXXX KC_NO
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |E/FN5 |R/FN6 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
+ * | Tab  |   Q  |   W  | E/L6 | R/L7 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |Ctrl/Esc|A/FN2|S/FN4|D/FN1 |F/FN3 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
+ * |Ctrl/Esc|A/L3| S/L5 | D/L2 | F/L4 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Shift/(|  Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  /  |Shift/)|
+ * |Shift/(|  Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift/)|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | Hyper| Del  |    Space    | Bksp | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-  KC_TAB,  KC_Q,    KC_W,    F(5),    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-  MT(MOD_LCTL, KC_ESC),  F(2),    F(4),    F(1),    F(3),    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
+  KC_TAB,  KC_Q,    KC_W, LT(6, KC_E), LT(7, KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
+  MT(MOD_LCTL, KC_ESC), LT(3, KC_A), LT(5, KC_S), LT(2, KC_D),  LT(4, KC_F),  KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
   KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
   KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
@@ -183,15 +180,6 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
-};
-
-const uint16_t PROGMEM fn_actions[] = {
- [1] = ACTION_LAYER_TAP_KEY(4, KC_D), // FN1 = momentary Digits layer on D key, to use with Numpad keys
- [2] = ACTION_LAYER_TAP_KEY(5, KC_A), // FN2 = momentary Arrows layer on A key, to use with Arrow keys
- [3] = ACTION_LAYER_TAP_KEY(6, KC_F), // FN3 = momentary Functions layer on F key, to use with Functions keys
- [4] = ACTION_LAYER_TAP_KEY(7, KC_S), // FN4 = momentary Symbol layer on S key, to use with Symbols keys
- [5] = ACTION_LAYER_TAP_KEY(8, KC_E), // FN5 = momentary Settings layer on E key, to use with Settings keys
- [6] = ACTION_LAYER_TAP_KEY(9, KC_R), // FN6 = momentary Brackets layer on R key, to use with brackets and parenthesis
 };
 
 #ifdef AUDIO_ENABLE
