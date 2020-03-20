@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Symbols (chord and pick)
 Symbols layer based on pocketkk's Chord left Pick right design. No need for lower and raise layers anymore.
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |  &   |  *   |  =   |      |      |
+ * |      |      |      |      |      |      |      |  &   |  *   |  =   |  `   |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |  $   |  %   |  ^   |  ~   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -138,7 +138,7 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
  * `-----------------------------------------------------------------------------------'
  */
 [_SYMBOLS] = LAYOUT_planck_grid(
-  _______, _______, _______, _______, _______, _______, XXXXXXX, KC_AMPR, KC_ASTR, KC_EQL,  XXXXXXX, XXXXXXX,
+  _______, _______, _______, _______, _______, _______, XXXXXXX, KC_AMPR, KC_ASTR, KC_EQL,  KC_GRV,  XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_DLR,  KC_PERC, KC_CIRC, KC_TILD, XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_UNDS, XXXXXXX,
   _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
