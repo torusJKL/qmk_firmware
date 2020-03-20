@@ -8,6 +8,6 @@ Features:
 - Brightness moved to lower and raise layers
 - Rearanged Ctrl and GUI keys
 - Added Hyper key
-- Digits, Arrows, Functions, Brackets and Symbols layer based on pocketkk's Chord left Pick right design
+- Numpad, Digits, Arrows, Functions, Brackets and Symbols layer based on pocketkk's Chord left Pick right design
 - the lower and raise layers are removed in favor of the chord and pick layers
-- left shift is ( when tapped, right shift is ) when tapped
+
