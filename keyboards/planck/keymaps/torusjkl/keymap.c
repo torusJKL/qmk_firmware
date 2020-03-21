@@ -24,13 +24,6 @@ _QWRTSMPL
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
-  NUMEPAD,
-  DIGITS,
-  ARROWS,
-  FUNCTIONS,
-  SYMBOLS,
-  SETTINGS,
-  BRACKETS,
   QWRTSMPL,
   BACKLIT
 };
@@ -39,20 +32,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  | R/L7 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
+ * | Tab  |   Q  |   W  | E/L2 | R/L7 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Ctrl/Esc|A/L3| S/L5 | D/L1 | F/L4 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Shift | Z/L6 |   X  | C/L2 |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
+ * |Shift | Z/L6 |   X  |  C   |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | Hyper| Del  |    Space    | Bksp | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-  KC_TAB,  KC_Q,    KC_W, KC_E, LT(7, KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-  MT(MOD_LCTL, KC_ESC), LT(3, KC_A), LT(5, KC_S), LT(1, KC_D),  LT(4, KC_F),  KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
-  KC_LSFT, LT(6, KC_Z),    KC_X,    LT(2, KC_C),    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  KC_TAB,  KC_Q,    KC_W, LT(2, KC_E), LT(7, KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
+  MT(MOD_LCTL, KC_ESC), LT(3, KC_A), LT(5, KC_S), LT(1, KC_D), LT(4, KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, MT(MOD_RCTL, KC_ENT),
+  KC_LSFT, LT(6, KC_Z),    KC_X,    KC_C,    KC_V,     KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,     KC_SPC,  KC_SPC,  KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Numpad (chord and pick)
@@ -158,7 +151,7 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
  * `-----------------------------------------------------------------------------------'
  */
 [_SETTINGS] = LAYOUT_planck_grid(
-  _______, _______,   _______, _______, RESET, _______, _______, _______, _______, _______, _______, KC_DEL,
+  _______, _______,   _______, _______, RESET, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, MUV_IN,  AU_ON,   MU_ON,   AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______,
   _______, _______, MUV_DE,  AU_OFF,  MU_OFF,  MI_ON,   MI_OFF, QWRTSMPL, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
@@ -194,9 +187,9 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
  * `-----------------------------------------------------------------------------------'
  */
 [_QWRTSMPL] = LAYOUT_planck_grid(
-  _______, _______, _______, _______, KC_R,    _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, KC_E,    KC_R,    _______, _______, _______, _______, _______, _______, _______,
   _______, KC_A,    KC_S,    KC_D,    KC_F,    _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, KC_C,    _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
@@ -225,7 +218,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           stop_all_notes();
           PLAY_SONG(tone_qwerty);
         #endif
-        persistant_default_layer_set(1UL<<_QWERTY);
+        set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case QWRTSMPL:
+      if (record->event.pressed) {
+        #ifdef AUDIO_ENABLE
+          stop_all_notes();
+          PLAY_SONG(tone_qwerty);
+        #endif
+        set_single_persistent_default_layer(_QWRTSMPL);
       }
       return false;
       break;
@@ -235,8 +238,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #ifdef BACKLIGHT_ENABLE
           backlight_step();
         #endif
+        #ifdef KEYBOARD_planck_rev5
+          writePinLow(E6);
+        #endif
       } else {
         unregister_code(KC_RSFT);
+        #ifdef KEYBOARD_planck_rev5
+          writePinHigh(E6);
+        #endif
       }
       return false;
       break;
