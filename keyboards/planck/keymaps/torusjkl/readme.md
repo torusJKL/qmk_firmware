@@ -11,3 +11,7 @@ Features:
 - Numpad, Digits, Arrows, Functions, Brackets and Symbols layer based on pocketkk's Chord left Pick right design
 - the lower and raise layers are removed in favor of the chord and pick layers
 
+use the following command to compile
+```
+make planck/rev4:torusjkl
+```
