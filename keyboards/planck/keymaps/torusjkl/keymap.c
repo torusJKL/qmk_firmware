@@ -31,7 +31,8 @@ enum planck_keycodes {
   SYMBOLS,
   SETTINGS,
   BRACKETS,
-  QWRTSMPL
+  QWRTSMPL,
+  BACKLIT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
