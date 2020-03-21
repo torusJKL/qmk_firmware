@@ -39,19 +39,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  | E/L6 | R/L7 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
+ * | Tab  |   Q  |   W  |   E  | R/L7 |   T  |   Y  |   U  |   I  |   O  |   P  |   "  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |Ctrl/Esc|A/L3|   S  | D/L1 | F/L4 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
+ * |Ctrl/Esc|A/L3| S/L5 | D/L1 | F/L4 |   G  |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Shift | Z/L5 |   X  | C/L2 |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
+ * |Shift | Z/L6 |   X  | C/L2 |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | Hyper| Del  |    Space    | Bksp | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-  KC_TAB,  KC_Q,    KC_W, LT(6, KC_E), LT(7, KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-  MT(MOD_LCTL, KC_ESC), LT(3, KC_A), KC_S, LT(1, KC_D),  LT(4, KC_F),  KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
-  KC_LSFT, LT(5, KC_Z),    KC_X,    LT(2, KC_C),    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+  KC_TAB,  KC_Q,    KC_W, KC_E, LT(7, KC_R),    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
+  MT(MOD_LCTL, KC_ESC), LT(3, KC_A), LT(5, KC_S), LT(1, KC_D),  LT(4, KC_F),  KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
+  KC_LSFT, LT(6, KC_Z),    KC_X,    LT(2, KC_C),    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -143,14 +143,14 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_AMPR, KC_ASTR, KC_EQL,  KC_GRV,  XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_DLR,  KC_PERC, KC_CIRC, KC_TILD, XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_UNDS, XXXXXXX,
-  _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
 /* Settings
  * ,-----------------------------------------------------------------------------------.
- * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
+ * |      |      |      |      |Reset |      |      |      |      |      |      |  Del |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |Voice+|Aud on|Mus on|AGnorm|AGswap|Qwerty|Colemk|Dvorak|Plover|      |
+ * |      |      |Voice+|Aud on|Mus on|AGnorm|AGswap|Qwerty|      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |Voice-|Audoff|Musoff|MIDIon|MIDIof|QwrtSmpl|    |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -158,7 +158,7 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
  * `-----------------------------------------------------------------------------------'
  */
 [_SETTINGS] = LAYOUT_planck_grid(
-  _______, RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
+  _______, _______,   _______, _______, RESET, _______, _______, _______, _______, _______, _______, KC_DEL,
   _______, _______, MUV_IN,  AU_ON,   MU_ON,   AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______,
   _______, _______, MUV_DE,  AU_OFF,  MU_OFF,  MI_ON,   MI_OFF, QWRTSMPL, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
@@ -179,7 +179,7 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_LABK, KC_LBRC, KC_RBRC, KC_RABK, XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, XXXXXXX,
   _______, _______, _______, _______, _______, _______, XXXXXXX, KC_BSLS, KC_PIPE, KC_DOT,  KC_SLSH, XXXXXXX,
-  _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
 /* Qwerty simple
@@ -188,16 +188,16 @@ Symbols layer based on pocketkk's Chord left Pick right design. No need for lowe
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Ctrl/Esc| A  |  S   |  D   |  F   |  G   |   H  |   J  |   K  |   L  |   ;  |Ctrl/Enter|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Shift | Z/L5 |  X   |  C   |  V   |  B   |   N  |   M  |   ,  |   .  |   /  |Shift |
+ * |Shift | Z/L6 |  X   |  C   |  V   |  B   |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  |Hyper | Del  |    Space    | Bksp | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWRTSMPL] = LAYOUT_planck_grid(
-  KC_TAB,  KC_Q,    KC_W, KC_E, KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-  MT(MOD_LCTL, KC_ESC), KC_A, KC_S, KC_D,  KC_F,  KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_ENT),
-  KC_LSFT, LT(5, KC_Z),    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-  KC_LCTL, KC_LGUI, KC_LALT, ALL_T(KC_NO), KC_DEL,   KC_SPC,  KC_SPC,  KC_BSPC,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  _______, _______, _______, _______, KC_R,    _______, _______, _______, _______, _______, _______, _______,
+  _______, KC_A,    KC_S,    KC_D,    KC_F,    _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, KC_C,    _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______,
 ),
 
 };
